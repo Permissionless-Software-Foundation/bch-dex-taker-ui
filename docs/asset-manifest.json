@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.1fffacca.css",
-    "main.js": "/static/js/main.c3c19654.js",
-    "static/media/psf-logo.png": "/static/media/psf-logo.3485139af901ffeaf77f.png",
-    "index.html": "/index.html",
-    "main.1fffacca.css.map": "/static/css/main.1fffacca.css.map",
-    "main.c3c19654.js.map": "/static/js/main.c3c19654.js.map"
+    "main.css": "/bch-dex-taker-ui/static/css/main.1fffacca.css",
+    "main.js": "/bch-dex-taker-ui/static/js/main.ed51b58e.js",
+    "static/media/psf-logo.png": "/bch-dex-taker-ui/static/media/psf-logo.3485139af901ffeaf77f.png",
+    "index.html": "/bch-dex-taker-ui/index.html",
+    "main.1fffacca.css.map": "/bch-dex-taker-ui/static/css/main.1fffacca.css.map",
+    "main.ed51b58e.js.map": "/bch-dex-taker-ui/static/js/main.ed51b58e.js.map"
   },
   "entrypoints": [
     "static/css/main.1fffacca.css",
-    "static/js/main.c3c19654.js"
+    "static/js/main.ed51b58e.js"
   ]
 }
