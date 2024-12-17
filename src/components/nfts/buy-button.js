@@ -57,8 +57,8 @@ class BuyNftButton extends React.Component {
     try {
       console.log('Buy button clicked.')
 
-      const targetOffer = this.state.offer.p2wdbHash
-      console.log('targetOffer: ', targetOffer)
+      const targetOffer = this.state.offer.nostrEventId
+      console.log('targetOffer nostr eventId: ', targetOffer)
 
       // Initialize modal
       this.setState({
@@ -82,15 +82,16 @@ class BuyNftButton extends React.Component {
 
       // Generate a Counter Offer.
       const bchDexLib = this.state.appData.dex
-      const p2wdbOut = await bchDexLib.take.takeOffer(targetOffer)
-      console.log('p2wdbOut: ', p2wdbOut)
+      const {eventId, noteId} = await bchDexLib.take.takeOffer(targetOffer)
+      console.log(`Counter Offer uploaded to Nostr with this event ID: ${eventId}`)
+      console.log(`https://astral.psfoundation.info/${noteId}`)
 
-      const p2wdbHash = p2wdbOut.hash
+      // const p2wdbHash = p2wdbOut.hash
 
       // Add link to output
       const modalBody = []
       modalBody.push('Success!')
-      modalBody.push(<a href={`https://p2wdb.fullstack.cash/entry/hash/${p2wdbHash}`} target='_blank' rel='noreferrer'>P2WDB Entry</a>)
+      modalBody.push(<a href={`https://astral.psfoundation.info/${noteId}`} target='_blank' rel='noreferrer'>Nostr Event</a>)
       modalBody.push('What happens next:')
       modalBody.push('The money has not yet left your wallet! It is still under your control.')
       modalBody.push('If the sellers node is online, they will accept the Counter Offer you just generated in a few minutes.')
