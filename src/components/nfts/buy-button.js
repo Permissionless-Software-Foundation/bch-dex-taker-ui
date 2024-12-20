@@ -82,7 +82,12 @@ class BuyNftButton extends React.Component {
 
       // Generate a Counter Offer.
       const bchDexLib = this.state.appData.dex
-      const {eventId, noteId} = await bchDexLib.take.takeOffer(targetOffer)
+      const { offerData, partialHex } = await bchDexLib.take.takeOffer(targetOffer)
+
+      const nostr = this.state.appData.nostr
+      console.log('nostr: ', nostr)
+      const { eventId, noteId } = await nostr.testNostrUpload({ offerData, partialHex })
+
       console.log(`Counter Offer uploaded to Nostr with this event ID: ${eventId}`)
       console.log(`https://astral.psfoundation.info/${noteId}`)
 
