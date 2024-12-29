@@ -19,6 +19,7 @@ import Footer from './components/footer'
 import NavMenu from './components/nav-menu'
 import AppBody from './components/app-body'
 import LoadLocalStorage from './components/load-localstorage'
+import Nostr from './services/nostr.js'
 
 // Default restURL for a back-end server.
 let serverUrl = 'https://free-bch.fullstack.cash'
@@ -153,6 +154,8 @@ class App extends React.Component {
       // Instantiate dex library
       // const BchDexLib = this.state.appData.BchDexLib
       const bchDexLib = new BchDexLib({ bchWallet, p2wdbRead, p2wdbWrite })
+      const nostr = new Nostr({ bchWallet })
+      console.log('nostr lib initialized: ', nostr)
 
       // Close the modal once initialization is done.
       this.setState({
@@ -161,7 +164,8 @@ class App extends React.Component {
         asyncInitSucceeded: true,
         dex: bchDexLib,
         p2wdb: { p2wdbRead, p2wdbWrite },
-        denyClose: false
+        denyClose: false,
+        nostr
       })
     } catch (err) {
       this.modalBody = [
@@ -203,6 +207,7 @@ class App extends React.Component {
       dex: this.state.dex,
       p2wdb: this.state.p2wdb,
       wallet: this.state.bchWallet,
+      nostr: this.state.nostr,
 
       // Offer caches
       nftOfferCache: this.state.nftOfferCache,
