@@ -95,7 +95,7 @@ class NostrBrowser {
 
       return { eventId, noteId }
     } catch (err) {
-      console.log('Error in nostr.js/testNostrUpload()')
+      console.log('Error in nostr.js/testNostrUpload(): err', err)
       throw err
     }
   }
